@@ -22,18 +22,31 @@ mongoose
 
 // -------------- Import of the model Profiles from './models/Profiles --------------
 const Profiles = require('./models/profiles.js');
+const Articles = require('./models/articles.js')
 
-// Creation of a profile in mongoose
+//Creation of a profile in mongoose ☀️Why we can't create a second user ?
 Profiles.create({
   pseudo: "arnaud2 le grand porc",
   password: "arnaud2 le password super porc",
-  status: "user"
+  status: "user",
 })
   .then(arg => {
-    console.log("created profile!");
+    console.log("created profile!", "bonjour arnaud");
   })
   .catch(err => {
-    console.error("no profile", err);
+    console.error("no profile", "bonjour arnaud", err);
+  });
+
+Articles.create({
+  title: "90",
+  text: "blablablabla",
+  author: "fred  le gros pd"
+})
+  .then(arg => {
+    console.log("created articles!");
+  })
+  .catch(err => {
+    console.error("no articles created", err);
   });
 
 

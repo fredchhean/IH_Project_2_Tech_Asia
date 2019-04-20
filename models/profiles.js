@@ -5,7 +5,10 @@ const profilesSchema = new Schema({
     // TODO: write the schema
   pseudo: { type: String, required:true, unique: true },
   password: {type: String, required:true, unique: true },//REGEX à voir
-  status: {type: String},
+  email: {type:String, required:true, unique:true},
+  status: {type: String, enum:["user","admin"], required:true},//☀️Vérifier qu'on peut bien mettre 2 possibilités
+  fav: Array,
+
     // favorites: [id of articles],
       // picture: {type: Image, default: "trouveruneimagepardéfaut"},
 });
