@@ -32,4 +32,8 @@ router.get('/log-in', (req, res, next) => {
   res.render('log-in.hbs');
 });
 
+router.post('/profile', (req, res, next) => {
+  res.render('profile.hbs');
+});
+
 module.exports = router;
