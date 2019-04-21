@@ -1,7 +1,6 @@
 const express = require('express');
 const router  = express.Router();
 
-fred est un gros pd du cul !
 
 /* GET home page */
 router.get('/', (req, res, next) => {

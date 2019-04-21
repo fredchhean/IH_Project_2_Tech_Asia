@@ -38,9 +38,19 @@ Profiles.create({
   });
 
 Articles.create({
-  title: "90",
-  text: "blablablabla",
-  author: "fred  le gros pd"
+    title: "Article 1",
+    text: "lorem ipsum",
+    prompt: "lorem ipsum",
+    tag: ["test"],
+    category: ["test"],
+    author: "lorem ipsum",
+    commment: [{
+      text: "lorem ipsum",
+      date: Date.now(),
+    }], 
+    date: Date.now(),
+    rate: 4,
+
 })
   .then(arg => {
     console.log("created articles!");
@@ -48,6 +58,7 @@ Articles.create({
   .catch(err => {
     console.error("no articles created", err);
   });
+
 
 
 const app_name = require('./package.json').name;
