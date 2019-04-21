@@ -26,9 +26,11 @@ const Articles = require('./models/articles.js')
 
 //Creation of a profile in mongoose ☀️Why we can't create a second user ?
 Profiles.create({
-  pseudo: "arnaud2 le grand porc",
-  password: "arnaud2 le password super porc",
+  pseudo: "arnaud",
+  password: "arnaud le password ",
   status: "user",
+  email: "mochearnaudlepd@gmail.com",
+  fav: ["boobies","pussy"],
 })
   .then(arg => {
     console.log("created profile!", "bonjour arnaud");
@@ -37,8 +39,11 @@ Profiles.create({
     console.error("no profile", "bonjour arnaud", err);
   });
 
+//Creation of a article in mongoose ☀️Why we can't create a second user ?
+//☀️comment faire en sorte que les paramètres de nos collections (articles, profiles...) prennent en compte les nouveaux paramètres : ex title : unique: true
+
 Articles.create({
-    title: "Article 1",
+    title: "Article 4_test_unique",
     text: "lorem ipsum",
     prompt: "lorem ipsum",
     tag: ["test"],
@@ -50,7 +55,6 @@ Articles.create({
     }], 
     date: Date.now(),
     rate: 4,
-
 })
   .then(arg => {
     console.log("created articles!");
