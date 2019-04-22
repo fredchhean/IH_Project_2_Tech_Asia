@@ -8,7 +8,10 @@ const articlesSchema = new Schema({
     prompt: String,
     tag: [String],
     category: [String],
-    author: String,
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: "profiles"
+    },
     commment: [{
       text: String,
       //user: id,  //☀️commment récupérer l'id du user ?

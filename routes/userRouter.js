@@ -24,6 +24,10 @@ router.post("/log-in", (req,res,next) => {
 });
 })
 
+
+Article.find().populate("author")
+
+
 module.exports = router;
 
 //test de retour commit 
