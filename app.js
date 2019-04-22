@@ -28,9 +28,9 @@ const Articles = require('./models/articles.js')
 Profiles.create({
   pseudo: "arnaud",
   password: "arnaud le password ",
-  status: "user",
-  email: "mochearnaudlepd@gmail.com",
-  fav: ["boobies","pussy"],
+  // status: "user",
+  email: "mochearnaud@gmail.com",
+  // fav: ["boobies","pussy"],
 })
   .then(arg => {
     console.log("created profile!", "bonjour arnaud");
@@ -42,26 +42,26 @@ Profiles.create({
 //Creation of a article in mongoose ☀️Why we can't create a second user ?
 //☀️comment faire en sorte que les paramètres de nos collections (articles, profiles...) prennent en compte les nouveaux paramètres : ex title : unique: true
 
-Articles.create({
-    title: "Article 4_test_unique",
-    text: "lorem ipsum",
-    prompt: "lorem ipsum",
-    tag: ["test"],
-    category: ["test"],
-    author: "lorem ipsum",
-    commment: [{
-      text: "lorem ipsum",
-      date: Date.now(),
-    }], 
-    date: Date.now(),
-    rate: 4,
-})
-  .then(arg => {
-    console.log("created articles!");
-  })
-  .catch(err => {
-    console.error("no articles created", err);
-  });
+// Articles.create({
+//     title: "Article 4_test_unique",
+//     text: "lorem ipsum",
+//     prompt: "lorem ipsum",
+//     tag: ["test"],
+//     category: ["test"],
+//     author: "lorem ipsum",
+//     commment: [{
+//       text: "lorem ipsum",
+//       date: Date.now(),
+//     }], 
+//     date: Date.now(),
+//     rate: 4,
+// })
+//   .then(arg => {
+//     console.log("created articles!");
+//   })
+//   .catch(err => {
+//     console.error("no articles created", err);
+//   });
 
 
 
@@ -99,6 +99,14 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const auth = require('./routes/userRouter.js');
+console.log(auth);
+
+app.use('/', auth);
+
+
+
 
 
 module.exports = app;

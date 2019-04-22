@@ -1,5 +1,6 @@
 const express = require('express');
 const router  = express.Router();
+const Profile = require('../models/profiles.js')
 
 
 /* GET home page */
@@ -32,8 +33,11 @@ router.get('/log-in', (req, res, next) => {
   res.render('log-in.hbs');
 });
 
-router.post('/profile', (req, res, next) => {
+router.get('/profile', (req, res, next) => {
   res.render('profile.hbs');
 });
 
+
 module.exports = router;
+
+

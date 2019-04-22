@@ -1,28 +1,29 @@
 // ---------------------------------------- LAST TRY ----------------------------------------------
 
-// const express = require("express");
-// const router = new express.Router();
-// const profilesModel = ("../models/profiles.js");
+const express = require("express");
+const router = new express.Router();
+const Profiles = require("./../models/profiles");
+
 
 // router.get('/log-in', (req, res, next) => {
-//   res.render("book-add");
+//   res.render("log-in");
 // });
 
 
-// // // router.post("/log-in", (request,response,next) => {
-// //   const { pseudo_creation, password_creation, email_declaration} = req.body;
-// //   const newProfiles = new Profiles ({ pseudo_creation, password_creation, email_declaration});
-// //   newProfiles.save()
-// //   .then((Profile) => {
-// //     res.redirect("../views/profile.hbs");
-// //     console.log("wesh new profile created");
-// // }) 
-// //   .catch((error) => {
-// //     console.log(error, "this an error");
-// // });
+router.post("/log-in", (req,res,next) => {
+  const {pseudo, password, email} = req.body;
+  // const newProfiles = new Profiles ({ pseudo, password, email});
+  Profiles.create({ pseudo, password, email})
+//dans then "profile", tu mets ce que tu veux
+  .then((profile) => {
+    res.redirect("/profile");
+    console.log("wesh new profile created", profile);
+}) 
+  .catch((error) => {
+    console.log(error, "this an error");
+});
+})
 
 module.exports = router;
-
-
 
 
