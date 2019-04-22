@@ -11,6 +11,8 @@ router.post("/register", (req, res, next) => {
   Profiles.create({ pseudo, password, email })
     //dans then "profile", tu mets ce que tu veux
     .then(profile => {
+      console.log(profile);
+
       res.redirect("/profile/" + profile._id);
       // res.locals.profileInfo = profile
       // res.render("/profile")
@@ -36,8 +38,17 @@ router.get("/profile/:id", (req, res) => {
     .catch(error => {
       console.log("user not found");
     });
+});
 
-    
+// DELETE USER in profile.hbs
+router.get("/profile-remove/:id", (req, res) => {
+  Profiles.findByIdAndRemove(req.params.id)
+    .then(profile => {
+      res.locals.profileData = profile;
+      res.redirect("/");
+      console.log("your profile has been deleted");
+    })
+    .catch(err => res.send(err));
 });
 
 // Article.find().populate("author") made by Guillaume to reference an author of articles in profiles.js
