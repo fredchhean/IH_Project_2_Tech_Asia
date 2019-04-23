@@ -1,17 +1,16 @@
-<form action="/profile-edit/{{}}" method="POST">
-  <label for="">Choose your pseudo</label>
-  <input type="text" name="pseudo" value="foofoo">
+<form action="{{action}}" method="POST">
+  <label for="pseudo">Choose your pseudo</label>
+  <input id="pseudo" type="text" name="pseudo" value="foofoo">
 
-  <label for="">Choose your password</label>
-  <input type="password" name="password" value="123Soleil">
+  <label for="password">Choose your password</label>
+  <input id="password" type="password" name="password" value="123Soleil">
 
-  <label for="">Write your email</label>
-  <input type="text" name="email" value="baz@foo.bar">
-
-  {{!-- ☀️ HOW TO UPLOAD PROFILE PICTURE 
-  <label for="">Upload a picture</label>
-  <input type="text" name="profile-picture"> --}}
-
+  <label for="email">Write your email</label>
+  <input id="email" type="text" name="email" value="baz@foo.bar">
   <button type="submit">ADD</button>
 
 </form>
+
+{{!-- ☀️ HOW TO UPLOAD PROFILE PICTURE 
+  <label for="">Upload a picture</label>
+  <input type="text" name="profile-picture"> --}}

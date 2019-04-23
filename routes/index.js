@@ -37,4 +37,5 @@ router.get("/profile", (req, res, next) => {
 router.get("/profile-edit/:id", (req, res, next) => {
   res.render("register.hbs", { action: "/profile-edit/" + req.params.id });
 });
+
 module.exports = router;

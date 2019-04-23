@@ -22,34 +22,10 @@ router.post("/register", (req, res, next) => {
 });
 
 // READ USER PROFILE IN profile.hbs
-
-// 1st method to read with its id
-// router.get("/profile/:id", (req, res) => {
-// return console.log(req.params.id)
-// const { id } = req.params;
-// console.log("ici");
-
-//   Profiles.findById(req.params.id)
-//     .then(profile => {
-//       res.locals.profileData = profile;
-//       res.render("profile.hbs");
-//       console.log("this is your profile");
-//     })
-//     .catch(error => {
-//       console.log("user not found");
-//     });
-// });
-
-//2d method to read with its pseudo
 router.get("/profile/:pseudo", (req, res) => {
-  // return console.log(req.params.id)
-  // const { id } = req.params;
-  // console.log("ici");
   Profiles.findOne({ pseudo: req.params.pseudo })
     .then(profile => {
-      // res.locals.profile = profile;
       res.render("profile.hbs", { profile });
-      console.log("this is your profile");
     })
     .catch(error => {
       console.log("user not found");
@@ -72,19 +48,20 @@ const updateOne = (id, data) =>
   Profiles.findOneAndUpdate({ _id: id }, { ...data });
 
 router.post("/profile-edit/:id", (req, res) => {
-  //return console.log("ici");
-  Profiles.findOne({ pseudo: req.params.pseudo });
-  updateOne(req.params.id, req.body)
-    .then(dbRes => {
-      console.log(dbRes);
-      res
-        .status(200)
-        // .render(dbRes)
-        .redirect("/profile/:pseudo");
+  //return console.log(req.body);
+  Profiles.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      pseudo: req.body.pseudo,
+      email: req.body.email,
+      password: req.body.password
+    }
+  )
+    .then(dbSuccess => {
+      res.redirect("/profile/" + req.body.pseudo);
     })
-
     .catch(dbErr => {
-      console.log(dbErr);
+      console.log("not ok", dbErr);
       res.send(dbErr);
     });
   // console.log(action);
@@ -95,3 +72,20 @@ router.post("/profile-edit/:id", (req, res) => {
 module.exports = router;
 
 //test de retour commit
+
+// 1st method to read with its id
+// router.get("/profile/:id", (req, res) => {
+// return console.log(req.params.id)
+// const { id } = req.params;
+// console.log("ici");
+
+//   Profiles.findById(req.params.id)
+//     .then(profile => {
+//       res.locals.profileData = profile;
+//       res.render("profile.hbs");
+//       console.log("this is your profile");
+//     })
+//     .catch(error => {
+//       console.log("user not found");
+//     });
+// });

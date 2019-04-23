@@ -25,45 +25,6 @@ mongoose
 const Profiles = require("./models/profiles.js");
 const Articles = require("./models/articles.js");
 
-//Creation of a profile in mongoose ☀️Why we can't create a second user ?
-// Profiles.create({
-//   pseudo: "arnaud",
-//   password: "arnaud le password ",
-//   // status: "user",
-//   email: "mochearnaud@gmail.com"
-//   // fav: ["boobies","pussy"],
-// })
-//   .then(arg => {
-//     console.log("created profile!", "bonjour arnaud");
-//   })
-//   .catch(err => {
-//     console.error("no profile", "bonjour arnaud", err);
-//   });
-
-//Creation of a article in mongoose ☀️Why we can't create a second user ?
-//☀️comment faire en sorte que les paramètres de nos collections (articles, profiles...) prennent en compte les nouveaux paramètres : ex title : unique: true
-
-// Articles.create({
-//     title: "Article 4_test_unique",
-//     text: "lorem ipsum",
-//     prompt: "lorem ipsum",
-//     tag: ["test"],
-//     category: ["test"],
-//     author: "lorem ipsum",
-//     commment: [{
-//       text: "lorem ipsum",
-//       date: Date.now(),
-//     }],
-//     date: Date.now(),
-//     rate: 4,
-// })
-//   .then(arg => {
-//     console.log("created articles!");
-//   })
-//   .catch(err => {
-//     console.error("no articles created", err);
-//   });
-
 const app_name = require("./package.json").name;
 const debug = require("debug")(
   `${app_name}:${path.basename(__filename).split(".")[0]}`
@@ -99,8 +60,6 @@ const index = require("./routes/index");
 app.use("/", index);
 
 const auth = require("./routes/userRouter.js");
-//console.log(auth);
-
 app.use("/", auth);
 
 module.exports = app;
