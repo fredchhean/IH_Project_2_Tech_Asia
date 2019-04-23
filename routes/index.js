@@ -27,11 +27,14 @@ router.get("/discover", (req, res, next) => {
 });
 
 router.get("/register", (req, res, next) => {
-  res.render("register.hbs");
+  res.render("register.hbs", { action: "/register" });
 });
 
 router.get("/profile", (req, res, next) => {
   res.render("profile.hbs");
 });
 
+router.get("/profile-edit/:id", (req, res, next) => {
+  res.render("register.hbs", { action: "/profile-edit/" + req.params.id });
+});
 module.exports = router;

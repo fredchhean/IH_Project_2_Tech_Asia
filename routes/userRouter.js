@@ -11,7 +11,7 @@ router.post("/register", (req, res, next) => {
     .then(profile => {
       console.log(profile);
 
-      res.redirect("/profile/" + profile._id);
+      res.redirect("/profile/" + profile.pseudo);
       // res.locals.profileInfo = profile
       // res.render("/profile")
       console.log("wesh new profile created", profile);
@@ -22,15 +22,33 @@ router.post("/register", (req, res, next) => {
 });
 
 // READ USER PROFILE IN profile.hbs
-router.get("/profile/:id", (req, res) => {
+
+// 1st method to read with its id
+// router.get("/profile/:id", (req, res) => {
+// return console.log(req.params.id)
+// const { id } = req.params;
+// console.log("ici");
+
+//   Profiles.findById(req.params.id)
+//     .then(profile => {
+//       res.locals.profileData = profile;
+//       res.render("profile.hbs");
+//       console.log("this is your profile");
+//     })
+//     .catch(error => {
+//       console.log("user not found");
+//     });
+// });
+
+//2d method to read with its pseudo
+router.get("/profile/:pseudo", (req, res) => {
   // return console.log(req.params.id)
   // const { id } = req.params;
   // console.log("ici");
-
-  Profiles.findById(req.params.id)
+  Profiles.findOne({ pseudo: req.params.pseudo })
     .then(profile => {
-      res.locals.profileData = profile;
-      res.render("profile.hbs");
+      // res.locals.profile = profile;
+      res.render("profile.hbs", { profile });
       console.log("this is your profile");
     })
     .catch(error => {
@@ -53,7 +71,24 @@ router.get("/profile-remove/:id", (req, res) => {
 const updateOne = (id, data) =>
   Profiles.findOneAndUpdate({ _id: id }, { ...data });
 
-router.get("/profile");
+router.post("/profile-edit/:id", (req, res) => {
+  //return console.log("ici");
+  Profiles.findOne({ pseudo: req.params.pseudo });
+  updateOne(req.params.id, req.body)
+    .then(dbRes => {
+      console.log(dbRes);
+      res
+        .status(200)
+        // .render(dbRes)
+        .redirect("/profile/:pseudo");
+    })
+
+    .catch(dbErr => {
+      console.log(dbErr);
+      res.send(dbErr);
+    });
+  // console.log(action);
+});
 
 // Article.find().populate("author") made by Guillaume to reference an author of articles in profiles.js
 
