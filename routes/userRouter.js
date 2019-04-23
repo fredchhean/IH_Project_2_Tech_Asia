@@ -1,10 +1,8 @@
-// ---------------------------------------- LAST TRY ----------------------------------------------
-
 const express = require("express");
 const router = new express.Router();
 const Profiles = require("./../models/profiles");
 
-// CREATE USER in log-in.hbs
+// CREATE USER in register.hbs
 router.post("/register", (req, res, next) => {
   const { pseudo, password, email } = req.body;
   // const newProfiles = new Profiles ({ pseudo, password, email});
@@ -50,6 +48,12 @@ router.get("/profile-remove/:id", (req, res) => {
     })
     .catch(err => res.send(err));
 });
+
+//UPDATE USER in profile.hbs
+const updateOne = (id, data) =>
+  Profiles.findOneAndUpdate({ _id: id }, { ...data });
+
+router.get("/profile");
 
 // Article.find().populate("author") made by Guillaume to reference an author of articles in profiles.js
 
