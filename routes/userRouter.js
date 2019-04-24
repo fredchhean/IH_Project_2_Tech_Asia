@@ -2,23 +2,13 @@ const express = require("express");
 const router = new express.Router();
 const Profiles = require("./../models/profiles");
 
-// CREATE USER in register.hbs
-router.post("/register", (req, res, next) => {
-  const { pseudo, password, email } = req.body;
-  // const newProfiles = new Profiles ({ pseudo, password, email});
-  Profiles.create({ pseudo, password, email })
-    //dans then "profile", tu mets ce que tu veux
-    .then(profile => {
-      console.log(profile);
 
-      res.redirect("/profile/" + profile.pseudo);
-      // res.locals.profileInfo = profile
-      // res.render("/profile")
-      console.log("wesh new profile created", profile);
-    })
-    .catch(error => {
-      console.log(error, "this an error");
-    });
+router.get("/profile", (req, res, next) => {
+  res.render("profile.hbs");
+});
+
+router.get("/profile-edit/:id", (req, res, next) => {
+  res.render("auth/register.hbs", { action: "/profile-edit/" + req.params.id });
 });
 
 // READ USER PROFILE IN profile.hbs

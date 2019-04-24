@@ -35,16 +35,6 @@ router.get("/discover", (req, res, next) => {
   res.render("discover.hbs");
 });
 
-router.get("/register", (req, res, next) => {
-  res.render("register.hbs", { action: "/register" });
-});
 
-router.get("/profile", (req, res, next) => {
-  res.render("profile.hbs");
-});
-
-router.get("/profile-edit/:id", (req, res, next) => {
-  res.render("register.hbs", { action: "/profile-edit/" + req.params.id });
-});
 
 module.exports = router;
