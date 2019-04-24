@@ -2,9 +2,18 @@ const express = require("express");
 const router = express.Router();
 const Profile = require("../models/profiles.js");
 
+// ----------Constantes to declare to use the api_articles------
+const Articles = require("../models/articles");
+const getAll = () => Articles.find();
+
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("home.hbs");
+  getAll()
+    .then(dbRes => {
+      console.log(dbRes);
+      res.render("home", { ArticlesList: dbRes });
+    })
+    .catch(dbErr => console.log(dbErr, "je n'aime pas ça"));
 });
 
 /* GET news page */

@@ -49,4 +49,15 @@ router.get("/articles_dashboard", (req, res) => {
     .catch(dbErr => console.log(dbErr));
 });
 
+
+///ADDED BY FRED 🌟
+// router.get("/home", (req, res) => {
+//   getAll()
+//     .then(dbRes => {
+//       console.log(dbRes);
+//       res.render("home", { ArticlesList: dbRes });
+//     })
+//     .catch(dbErr => console.log(dbErr, "je n'aime pas ça"));
+// });
+
 module.exports = router;
