@@ -1,16 +1,12 @@
 const express = require("express");
 const router = new express.Router();
-const Articles = require("./../models/articles");
+const Articles = require("../models/articles");
 
 // ------------------------------------------------------
 // this router only deals with articles data exchange (CRUD)
 // ------------------------------------------------------
 
 // ------ THE ROUTES GET ------
-
-router.get("/articles_dashboard", (req, res, next) => {
-  res.render("articles_dashboard.hbs");
-});
 
 router.get("/process-article", (req, res, next) => {
   res.render("process-article.hbs");
@@ -20,7 +16,7 @@ router.get("/process-article", (req, res, next) => {
 // ----------THE METHODS ---------
 const create = data => Articles.create(data);
 
-// const getAll - useful ?
+const getAll = () => Articles.find();
 
 const getOne = id => productModel.findById(id).populate("category");
 
@@ -42,6 +38,15 @@ router.post("/process-article", (req, res) => {
         .redirect("/articles_dashboard")
     )
     .catch(dbErr => res.send(dbErr));
+});
+
+router.get("/articles_dashboard", (req, res) => {
+  getAll()
+    .then(dbRes => {
+      console.log(dbRes);
+      res.render("articles_dashboard", { ArticlesList: dbRes });
+    })
+    .catch(dbErr => console.log(dbErr));
 });
 
 module.exports = router;

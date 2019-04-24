@@ -1,0 +1,36 @@
+<h1>this is the dashboard to manage articles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col" name="">Title</th>
+      <th scope="col" name="">prompt</th>
+      <th scope="col" name="">Author</th>
+      <th scope="col" name="">date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each Articles }}
+    <tr id="Articles_{{this._id}}" class="row">
+      <td class="cell">{{ this.Title }}</td>
+      <td class="cell">{{ this.prompt }}</td>
+      <td class="cell">{{ this.Author }}</td>
+      {{!-- <td class="cell">{{ternary this.category.name this.category.name 'uncategorized' }}</td> --}}
+      {{!-- <td class="cell">
+                    <a href="/dashboard/product/edit/{{this._id}}">edit</a>
+                </td>
+                <td class="cell">
+                    <input type="checkbox" name="products_id" value="{{this._id}}" class="checkbox">
+                </td> --}}
+      <td class="cell">
+        <a href="/dashboard/product/delete/{{this._id}}" class="delete btn">X</a>
+      </td>
+    </tr>
+    {{else}}
+    <tr class="row">
+      <td colspan="7" class="cell row-empty">no article yet</td>
+    </tr>
+    {{/each}}
+  </tbody>
+  <a href="/process-article">Create</a>
+</table>

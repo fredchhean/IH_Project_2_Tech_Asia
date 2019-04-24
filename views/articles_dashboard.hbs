@@ -1,6 +1,8 @@
-<h1>this is the dashboard to manage articles</h1>
+{{!-- {{#if isBoard}} --}}
+<h1>Salut</h1>
+{{> board_article }}
 
-<form action="" method="GET">
+{{!-- <table>
   <thead>
     <tr>
       <th scope="col" name="">Title</th>
@@ -10,14 +12,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">Donuts</th>
-      <td>3,000</td>
+    {{#each ArticlesList}}
+    <tr id="Articles_{{this._id}}" class="row">
+      <td class="cell">{{ this.title }}</td>
+      <td class="cell">{{ this.prompt }}</td>
+      <td class="cell">{{ this.author }}</td>
+      <td class="cell">
+        <a href="/dashboard/product/delete/{{this._id}}" class="delete btn">X</a>
+      </td>
     </tr>
-    <tr>
-      <th scope="row">Stationary</th>
-      <td>18,000</td>
-    </tr>
+    {{/each}}
   </tbody>
   <a href="/process-article">Create</a>
-</form>
+</table> --}}

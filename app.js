@@ -10,8 +10,7 @@ const logger = require("morgan");
 const path = require("path");
 
 // -------------- Permit to link the partials to our views ------------
-// hbs.registerPartials(__dirname + "/views/partials");
-
+hbs.registerPartials(__dirname + "/views/partials");
 
 // -------------- Connexion to mongoose - Connect to local host - Connect(or create) the DB "project-2-Tech-Asia --
 mongoose
