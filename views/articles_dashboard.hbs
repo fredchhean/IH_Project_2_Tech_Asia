@@ -1,8 +1,8 @@
 {{!-- {{#if isBoard}} --}}
 <h1>Salut</h1>
-{{> board_article }}
+{{!-- {{> board_article }} --}}
 
-{{!-- <table>
+<table>
   <thead>
     <tr>
       <th scope="col" name="">Title</th>
@@ -18,10 +18,10 @@
       <td class="cell">{{ this.prompt }}</td>
       <td class="cell">{{ this.author }}</td>
       <td class="cell">
-        <a href="/dashboard/product/delete/{{this._id}}" class="delete btn">X</a>
+        <a href="/articles_dashboard/{{this._id}}" class="delete btn">X</a>
       </td>
     </tr>
     {{/each}}
   </tbody>
   <a href="/process-article">Create</a>
-</table> --}}
+</table>

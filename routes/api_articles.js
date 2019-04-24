@@ -18,12 +18,12 @@ const create = data => Articles.create(data);
 
 const getAll = () => Articles.find();
 
-const getOne = id => productModel.findById(id).populate("category");
+// const getOne = id => productModel.findById(id).populate("category");
 
-const deleteOne = id => Articles.findOneAndDelete({ _id: id });
+const deleteOne = id => Articles.findByIdAndRemove(id);
 
-const updateOne = (id, data) =>
-  productModel.findOneAndUpdate({ _id: id }, { ...data });
+// const updateOne = (id, data) =>
+//   productModel.findOneAndUpdate({ _id: id }, { ...data });
 
 // insert one product in database
 
@@ -43,21 +43,18 @@ router.post("/process-article", (req, res) => {
 router.get("/articles_dashboard", (req, res) => {
   getAll()
     .then(dbRes => {
-      console.log(dbRes);
       res.render("articles_dashboard", { ArticlesList: dbRes });
     })
     .catch(dbErr => console.log(dbErr));
 });
 
-
-///ADDED BY FRED 🌟
-// router.get("/home", (req, res) => {
-//   getAll()
-//     .then(dbRes => {
-//       console.log(dbRes);
-//       res.render("home", { ArticlesList: dbRes });
-//     })
-//     .catch(dbErr => console.log(dbErr, "je n'aime pas ça"));
-// });
+router.get("/articles_dashboard/:id", (req, res) => {
+  deleteOne(req.params.id)
+    .then(dbRes => {
+      console.log("tu y es");
+      res.redirect("/articles_dashboard");
+    })
+    .catch(dbErr => res.send(dbErr));
+});
 
 module.exports = router;
