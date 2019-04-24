@@ -66,4 +66,6 @@ app.use("/", index);
 const auth = require("./routes/userRouter.js");
 app.use("/", auth);
 
+const articles = require("./routes/api_articles");
+app.use("/", articles);
 module.exports = app;
