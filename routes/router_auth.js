@@ -116,7 +116,9 @@ const avatar = req.file.secure_url
 
 
 router.get("/login", (req, res, next) => {
-  res.render("auth/login.hbs");
+
+  const m =  req.flash('error')[0];
+  res.render("auth/login.hbs", { msg: m });
 });
 
 router.post(
