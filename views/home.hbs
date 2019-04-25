@@ -1,25 +1,41 @@
-<div class="title-container">Last news</div>
 <div class="gallery-container">
   <a href="https://www.commentcamarche.net/forum/affich-1715263-html-bouton-lien"><img src="/images/adult-businessman-ceo-618613.jpg" alt="CAPTURE" class="capture">
     <span class="middle">
-    LE TEXTE A SUPERPOSER
+    {{this.title}}
     </span>
   </a>
 
   <a href="https://www.commentcamarche.net/forum/affich-1715263-html-bouton-lien"><img src="/images/back-black-and-white-buildings-1435194.jpg" alt="capture" class="capture">
       <span class="middle">
-    LE TEXTE A SUPERPOSER
+    {{this.title}}
     </span>
   </a></a>
 
   <a href="https://www.commentcamarche.net/forum/affich-1715263-html-bouton-lien"><img src="/images/businessman-collaborate-collaboration-872957.jpg" alt="capture" class="capture"></a>
 </div>
 
+<hr class="between-gl-art">
 
+<div class="ln">last news</div>
 
 {{#each ArticlesList}}
-<ul>
-  <li>{{this.title}}</li>
-</ul>
+<a href="">
+<div class="one-article-container">
+  <div>
+    <img src="/images/adult-businessman-ceo-618613.jpg" class="img-in-article-container">
+  </div>
+  <div class="text">
+    <h3>
+      {{this.title}}
+    </h3>
+    <P>
+      {{this.prompt}}
+    </P>
+  </div>
+</div>
+</a>
+
 
 {{/each}} 
+
+{{>article_container}}

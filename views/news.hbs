@@ -1,1 +1,22 @@
 <h1>News</h1>
+
+
+{{#each ArticlesList}}
+<a href="">
+<div class="one-article-container">
+  <div>
+    <img src="/images/adult-businessman-ceo-618613.jpg" class="img-in-article-container">
+  </div>
+  <div class="text">
+    <h3>
+      {{this.title}}
+    </h3>
+    <P>
+      {{this.prompt}}
+    </P>
+  </div>
+</div>
+</a>
+
+
+{{/each}} 

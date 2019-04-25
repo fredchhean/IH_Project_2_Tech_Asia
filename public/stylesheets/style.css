@@ -8,13 +8,11 @@ body {
 
 .logo {
   font-size: 2rem;
-  color: #111111;
+  color: #86140D;
   font-family: cursive;
   display: flex;
-  justify-content: center; }
-
-a {
-  color: #00B7FF; }
+  justify-content: center;
+  font-weight: bold; }
 
 nav {
   height: 3rem;
@@ -26,7 +24,49 @@ nav {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   margin-left: 5%;
-  margin-right: 5%; }
+  margin-right: 5%;
+  color: #86140D; }
+
+a {
+  text-decoration: none; }
+
+.one-article-container {
+  display: flex;
+  /* max-width: 80%; */
+  margin-left: 7%;
+  margin-right: 7%;
+  background-color: white;
+  padding-right: 1%;
+  margin-top: 1.5%;
+  align-items: center; }
+
+.between-gl-art {
+  border-top-style: dotted;
+  height: 2px;
+  width: 10%;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem; }
+
+.ln {
+  font-size: 1rem;
+  color: #111111;
+  font-family: cursive;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px; }
+
+.img-in-article-container {
+  margin-right: 15px;
+  margin-left: 0; }
+
+@media (max-width: 600px) {
+  .one-article-container {
+    max-width: 100%; }
+  .one-article-container img:nth-child(odd) {
+    display: none; } }
+
+.img-in-article-container {
+  max-width: 10rem; }
 
 nav .first {
   max-width: 70%; }
@@ -35,7 +75,7 @@ nav .first a:last-of-type {
   margin-right: 0; }
 
 nav a {
-  color: #111111;
+  color: #86140D;
   font-weight: bold;
   margin-right: 8px;
   text-decoration: none; }
@@ -56,7 +96,8 @@ nav a:hover {
   justify-content: space-around;
   height: 290px;
   margin-left: 2.5%;
-  margin-right: 2.5%; }
+  margin-right: 2.5%;
+  margin-top: 1rem; }
 
 .gallery-container a {
   min-width: 33%;
@@ -81,9 +122,10 @@ nav a:hover {
   font-size: 36px;
   color: #111111; }
 
-hr {
+.hr-for-nav {
   border-top-style: groove;
   background-color: white;
+  color: #86140D;
   height: 2px;
   width: 95%;
   margin-bottom: 0.5rem;

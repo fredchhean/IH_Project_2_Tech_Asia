@@ -17,24 +17,42 @@ router.get("/", (req, res, next) => {
 });
 
 /* GET news page */
+// router.get("/news", (req, res, next) => {
+//   res.render("news.hbs");
+// });
 router.get("/news", (req, res, next) => {
-  res.render("news.hbs");
+  getAll()
+    .then(dbRes => {
+      console.log(dbRes);
+      res.render("news.hbs", { ArticlesList: dbRes });
+    })
+    .catch(dbErr => console.log(dbErr, "je n'aime pas ça"));
 });
 
+
 /* GET stories page */
+// router.get("/stories", (req, res, next) => {
+//   res.render("stories.hbs");
+// });
+
 router.get("/stories", (req, res, next) => {
-  res.render("stories.hbs");
+  getAll()
+    .then(dbRes => {
+      console.log(dbRes);
+      res.render("stories.hbs", { ArticlesList: dbRes });
+    })
+    .catch(dbErr => console.log(dbErr, "je n'aime pas ça"));
 });
 
 /* GET stories page */
-router.get("/big-players", (req, res, next) => {
-  res.render("big-players.hbs");
-});
-
 router.get("/discover", (req, res, next) => {
-  res.render("discover.hbs");
+  getAll()
+    .then(dbRes => {
+      console.log(dbRes);
+      res.render("discover", { ArticlesList: dbRes });
+    })
+    .catch(dbErr => console.log(dbErr, "je n'aime pas ça"));
 });
-
 
 
 module.exports = router;
