@@ -11,19 +11,28 @@
 </head>
 
 <body>
-<header class="logo">
+<a href="/"><header class="logo">
   TechAsia
-</header>
+</header></a>
 <hr class="hr-for-nav">
   <nav>
     <a href="/">Home</a>
     <a href="/news">News</a>
     <a href="/stories">Stories</a>
     <a href="/discover">Discover</a>
+    {{#if isLoggedIn}}
     <a href="/articles_dashboard">art_dash</a>
+    {{/if}}
+
+    {{#unless isLoggedIn}}
     <span class="register">
-      <a href="/register">register</a>
-      <a href="/login">login</a>
+      <a href="/register">Register</a>
+      <a href="/login">Login</a>
+      {{/unless}}
+          {{#if isLoggedIn}}
+      <a href="/profile">Your profile / Log out</a>
+          {{/if}}
+
     </span>
   </nav>
   <hr class="hr-for-nav">

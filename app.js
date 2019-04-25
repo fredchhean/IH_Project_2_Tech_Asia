@@ -19,6 +19,8 @@ const sessionStore = new session.MemoryStore(); // mandatory for flashMessage
 const passport = require("passport");
 const flash = require("connect-flash");
 
+
+
 // CUSTOM MIDDLEWARE (must be placed before app.routers)
 // check if user is logged in... used for display purposes in hbs templates
 function checkloginStatus(req, res, next) {
