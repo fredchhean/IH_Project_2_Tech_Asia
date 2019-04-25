@@ -3,21 +3,21 @@
 
 {{#each ArticlesList}}
 {{#compare this.category "news" operator="=="}}
-<a href="">
-<div class="one-article-container">
-  <div>
-    <img src="/images/adult-businessman-ceo-618613.jpg" class="img-in-article-container">
+<a href="/articlepage/{{this._id}}">
+  <div class="one-article-container">
+    <div>
+      <img src="/images/adult-businessman-ceo-618613.jpg" class="img-in-article-container">
+    </div>
+    <div class="text">
+      <h3>
+        {{this.title}}
+      </h3>
+      <p>
+        {{this.prompt}}
+      </p>
+    </div>
   </div>
-  <div class="text">
-    <h3>
-      {{this.title}}
-    </h3>
-    <p>
-      {{this.prompt}}
-    </p>
-  </div>
-</div>
 </a>
 {{/compare}}
 
-{{/each}} 
+{{/each}}
