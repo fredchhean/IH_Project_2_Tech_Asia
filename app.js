@@ -59,7 +59,7 @@ hbs.registerPartials(__dirname + "/views/partials");
 
 // -------------- Connexion to mongoose - Connect to local host - Connect(or create) the DB "project-2-Tech-Asia --
 mongoose
-  .connect("mongodb://localhost/project-2-Tech-Asia", { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
