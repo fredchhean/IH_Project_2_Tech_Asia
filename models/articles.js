@@ -11,14 +11,16 @@ const articlesSchema = new Schema(
     category: [String],
     author: {
       type: Schema.Types.ObjectId,
-      ref: "Profiles"
+      ref: "profiles"
     },
 
-    commment: [
+    comments: [
       {
         text: String,
-        //user: id,  //☀️commment récupérer l'id du user ?
-        // picture: ☀️commment afficher l'image du user? ☀️Voir avec Guillaume image upload
+        writer: {
+          type: Schema.Types.ObjectId,
+          ref: "profiles"
+        },
         posted: { type: Date, default: Date.now }
       }
     ],

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const Articles = require("../models/articles");
+const profiles = require("../models/profiles");
 
 // ------------------------------------------------------
 // this router only deals with articles data exchange (CRUD)
@@ -16,9 +17,9 @@ router.get("/process-article", (req, res, next) => {
 // ----------THE METHODS ---------
 const create = data => Articles.create(data);
 
-const getAll = () => Articles.find();
+const getAll = () => Articles.find().populate("writer");
 
-const getOne = id => Articles.findById(id);
+const getOne = id => Articles.findById(id).populate("comments.writer");
 
 const deleteOne = id => Articles.findByIdAndRemove(id);
 
@@ -70,10 +71,17 @@ router.get("/articlepage/:id", (req, res) => {
 router.post("/articlepage/:id", (req, res) => {
   Articles.findOneAndUpdate(
     { _id: req.params.id },
-    { comment: req.body.comment }
+    {
+      $push: {
+        comments: {
+          text: req.body.text,
+          writer: req.user._id
+        }
+      }
+    }
   )
-    .then(article => {
-      res.redirect("/articlepage/" + req.body.comment);
+    .then(() => {
+      res.redirect("/articlepage/" + req.params.id);
     })
     .catch(dbErr => res.send(dbErr));
 });
