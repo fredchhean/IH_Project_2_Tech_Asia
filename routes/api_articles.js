@@ -18,7 +18,7 @@ const create = data => Articles.create(data);
 
 const getAll = () => Articles.find();
 
-// const getOne = id => productModel.findById(id).populate("category");
+const getOne = id => Articles.findById(id);
 
 const deleteOne = id => Articles.findByIdAndRemove(id);
 
@@ -51,10 +51,20 @@ router.get("/articles_dashboard", (req, res) => {
 router.get("/articles_dashboard/:id", (req, res) => {
   deleteOne(req.params.id)
     .then(dbRes => {
-      console.log("tu y es");
       res.redirect("/articles_dashboard");
     })
     .catch(dbErr => res.send(dbErr));
 });
 
+router.get("/articlepage/:id", (req, res) => {
+  getOne(req.params.id)
+    .then(article => {
+      console.log("tu y es", article);
+      res.render("articlepage", { article });
+    })
+    .catch(dbErr => res.send(dbErr));
+});
+
 module.exports = router;
+
+// + req.params.id
