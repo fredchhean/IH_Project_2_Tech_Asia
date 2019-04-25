@@ -6,7 +6,7 @@ const profilesSchema = new Schema({
   pseudo: { type: String},
   password: {type: String},//REGEX à voir
   email: {type:String},
-  // status: {type: String, enum:["user","admin"], required:true},//☀️Vérifier qu'on peut bien mettre 2 possibilités
+  status: {type: String, enum:["user","admin"], default:"user"},//☀️Vérifier qu'on peut bien mettre 2 possibilités
   // fav: Array,
 
     // favorites: [id of articles],

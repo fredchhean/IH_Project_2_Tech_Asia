@@ -6,6 +6,45 @@ const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt"); // bcrypt is a famous lib for data encryption
 const bcryptSalt = 10; // the salt level defines the level of encryption
 
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  Profiles
+    .findOne({_id: id})
+    .then(user => {
+      cb(null, user);
+    })
+    .catch(err => {
+      cb(err);
+    });
+});
+
+//this function setup a local strategy and provides logic for login action 
+passport.use(
+  new LocalStrategy(
+    { usernameField: "email", passwordField: "password" }, // change default username credential to email
+    function(email, passwd, next) {
+      Profiles
+        .findOne({ email })
+        .then(user => {
+          // db query success
+          if (user === null)
+            // if user === null
+            return next(null, false, { message: "Incorrect email" });
+          if (!bcrypt.compareSync(passwd, user.password))
+            // if provided password is not valid
+            return next(null, false, {
+              message: "Incorrect password"
+            });
+          else return next(null, user); // it's all good my friend !
+        })
+        .catch(dbErr => next(dbErr)); // if the db query fail...
+    }
+  )
+);
+
 router.get("/register", (req, res, next) => {
   res.render("auth/register.hbs", {
     action: "/register"
@@ -69,6 +108,18 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login.hbs", { msg:res.locals.flashMessage } );
 });
 
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect:"/profile",
+    failureRedirect:"/login",
+    failureFlash:true
+  })
+);
 
+router.get("/logout", (req,res) => {
+  req.logout();
+  res.redirect("/login")
+});
 
 module.exports = router;

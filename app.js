@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("./utils/hbs_helpers");
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -9,6 +10,8 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+
+//------SERVER JS APP.USE CHECLOGING STATUS FUNCTION CHECKLOGIN STATUS (APP.USE SESSION)
 
 // ==> login
 const session = require("express-session"); //sessions make data persist between http calls

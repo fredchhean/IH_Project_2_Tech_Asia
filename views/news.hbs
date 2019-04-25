@@ -2,6 +2,7 @@
 
 
 {{#each ArticlesList}}
+{{#compare this.category "news" operator="=="}}
 <a href="">
 <div class="one-article-container">
   <div>
@@ -11,12 +12,12 @@
     <h3>
       {{this.title}}
     </h3>
-    <P>
+    <p>
       {{this.prompt}}
-    </P>
+    </p>
   </div>
 </div>
 </a>
-
+{{/compare}}
 
 {{/each}} 

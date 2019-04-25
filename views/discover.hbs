@@ -1,6 +1,7 @@
 <h1>Discover</h1>
 
 {{#each ArticlesList}}
+{{#compare this.category "discover" operator="=="}}
 <a href="">
 <div class="one-article-container">
   <div>
@@ -16,6 +17,6 @@
   </div>
 </div>
 </a>
-
+{{/compare}}
 
 {{/each}} 

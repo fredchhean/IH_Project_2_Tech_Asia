@@ -1,29 +1,22 @@
 const express = require("express");
 const router = new express.Router();
 const Profiles = require("./../models/profiles");
+const ensureLogin = require("connect-ensure-login");
 
 
-router.get("/profile", (req, res, next) => {
-  res.render("profile.hbs");
-});
 
-router.get("/profile-edit/:id", (req, res, next) => {
+router.get("/profile-edit/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   res.render("auth/register.hbs", { action: "/profile-edit/" + req.params.id });
 });
 
 // READ USER PROFILE IN profile.hbs
-router.get("/profile/:pseudo", (req, res) => {
-  Profiles.findOne({ pseudo: req.params.pseudo })
-    .then(profile => {
-      res.render("profile.hbs", { profile });
-    })
-    .catch(error => {
-      console.log("user not found");
-    });
+router.get("/profile", ensureLogin.ensureLoggedIn(), (req, res) => {
+  // console.log("profil", req.user);
+  res.render("profile.hbs", {profile: req.user});
 });
 
 // DELETE USER in profile.hbs
-router.get("/profile-remove/:id", (req, res) => {
+router.get("/profile-remove/:id", ensureLogin.ensureLoggedIn(), (req, res) => {
   Profiles.findByIdAndRemove(req.params.id)
     .then(profile => {
       res.locals.profileData = profile;
