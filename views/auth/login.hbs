@@ -1,5 +1,11 @@
 je suis login
-{{msg.txt}}
+{{#if msg}}
+<p>YOYO</p>
+{{/if}}
+
+{{#if failureFlash}}
+{{message}}
+{{/if}}
 
 <form action="/login" method="POST">
   <label for="email">Write your email</label>

@@ -7,6 +7,11 @@ const profilesSchema = new Schema({
   password: {type: String, required:true, unique:true},//REGEX à voir
   email: {type:String, required:true},
   status: {type: String, enum:["user","admin"], default:"user"},//☀️Vérifier qu'on peut bien mettre 2 possibilités
+  avatar: {
+    type: String, 
+    default: "https://giphy.com/gifs/reaction-13gvXfEVlxQjDO",
+  }
+  
   // fav: Array,
 
     // favorites: [id of articles],

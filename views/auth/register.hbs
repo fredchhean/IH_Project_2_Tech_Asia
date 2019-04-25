@@ -1,4 +1,4 @@
-<form action="{{action}}" method="POST">
+<form action="{{action}}" method="POST" enctype="multipart/form-data">
   <label for="pseudo">Choose your pseudo</label>
   <input id="pseudo" type="text" name="pseudo" value="foofoo">
 
@@ -9,7 +9,13 @@
   <input id="email" type="text" name="email" value="baz@foo.bar">
   <button type="submit">ADD</button>
 
+
+{{!-- -----------🚀 FILE UPLOAD ------------- --}}
+  <label for="avatar">upload your avatar</label>
+  <input id="avatar" type="file" name="avatarUpload">
 </form>
+{{!-- -----------🚀 FILE UPLOAD ------------- --}}
+
 
 {{!-- ☀️ HOW TO UPLOAD PROFILE PICTURE 
   <label for="">Upload a picture</label>
