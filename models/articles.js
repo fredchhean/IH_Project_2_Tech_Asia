@@ -14,14 +14,14 @@ const articlesSchema = new Schema(
       ref: "Profiles"
     },
 
-    // commment: [
-    //   {
-    //     text: String,
-    //     //user: id,  //☀️commment récupérer l'id du user ?
-    //     // picture: ☀️commment afficher l'image du user? ☀️Voir avec Guillaume image upload
-    //     date: Date //☀️format ?
-    //   }
-    // ],
+    commment: [
+      {
+        text: String,
+        //user: id,  //☀️commment récupérer l'id du user ?
+        // picture: ☀️commment afficher l'image du user? ☀️Voir avec Guillaume image upload
+        posted: { type: Date, default: Date.now }
+      }
+    ],
     // date: { type: Date, required: true },
     rate: Number
   },

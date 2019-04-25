@@ -12,8 +12,15 @@
   <time datetime="{{article.date}}">{{article.date}}</time>
 </footer>
 </article>
+<div class="commentMaker">
+  <form action="" method="post">
+    <label for="comment">Leave a comment here !</label>
+    <input id="comment" type="text" name="comment" value="best article ever">
+    <button type="submit">ADD</button>
+  </form>
+</div>
 <div class="commentContainer">
-  {{!-- <article >
-      <p></p> must be a partial
-    </article> --}}
+  {{#each article}}
+  <p>{{this.comment}}</p>
+  {{/each}}
 </div>
