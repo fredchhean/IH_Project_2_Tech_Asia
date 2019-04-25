@@ -5,6 +5,12 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt"); // bcrypt is a famous lib for data encryption
 const bcryptSalt = 10; // the salt level defines the level of encryption
+const routerAuth = require("connect-ensure-login");
+
+// -- -----------🚀 FILE UPLOAD ------------- --
+const fileUploader = require ("../config/cloudinaryConfig")
+// -- -----------🚀 FILE UPLOAD ------------- --
+
 
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
@@ -52,12 +58,18 @@ router.get("/register", (req, res, next) => {
 });
 
 // CREATE USER in register.hbs
-router.post("/register", (req, res, next) => {
+router.post("/register", fileUploader.single("avatarUpload"), 
+(req, res, next) => {
+// -- -----------🚀 FILE UPLOAD ------------- --
+  
   const {
     pseudo,
     password,
     email
   } = req.body;
+  // -- -----------🚀 FILE UPLOAD ------------- --
+const avatar = req.file.secure_url
+// -- -----------🚀 FILE UPLOAD ------------- --
 
   Profiles.findOne({
     email
@@ -81,7 +93,7 @@ router.post("/register", (req, res, next) => {
     console.log("mdp encrypt", hashPass);
     // more info : https://en.wikipedia.org/wiki/Salt_(cryptography)
 
-    Profiles.create({ pseudo, password: hashPass, email })
+    Profiles.create({ pseudo, password: hashPass, email ,avatar})
       //dans then "profile", tu mets ce que tu veux
       .then(profile => {
         console.log(profile);
@@ -104,8 +116,7 @@ router.post("/register", (req, res, next) => {
 
 
 router.get("/login", (req, res, next) => {
-  console.log(res.locals.flashMessage)
-  res.render("auth/login.hbs", { msg:res.locals.flashMessage } );
+  res.render("auth/login.hbs");
 });
 
 router.post(

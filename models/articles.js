@@ -13,14 +13,15 @@ const articlesSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Profiles"
     },
-    commment: [
-      {
-        text: String,
-        //user: id,  //☀️commment récupérer l'id du user ?
-        // picture: ☀️commment afficher l'image du user? ☀️Voir avec Guillaume image upload
-        date: Date //☀️format ?
-      }
-    ],
+
+    // commment: [
+    //   {
+    //     text: String,
+    //     //user: id,  //☀️commment récupérer l'id du user ?
+    //     // picture: ☀️commment afficher l'image du user? ☀️Voir avec Guillaume image upload
+    //     date: Date //☀️format ?
+    //   }
+    // ],
     // date: { type: Date, required: true },
     rate: Number
   },
