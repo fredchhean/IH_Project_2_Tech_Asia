@@ -2,6 +2,11 @@ const express = require("express");
 const router = new express.Router();
 const Articles = require("../models/articles");
 
+// -- -----------🚀 FILE UPLOAD ------------- --
+const fileUploader = require ("../config/cloudinaryConfig")
+// -- -----------🚀 FILE UPLOAD ------------- --
+
+
 // ------------------------------------------------------
 // this router only deals with articles data exchange (CRUD)
 // ------------------------------------------------------
@@ -12,6 +17,8 @@ router.get("/process-article", (req, res, next) => {
   res.render("process-article.hbs");
   // console.log("route created");
 });
+
+
 
 // ----------THE METHODS ---------
 const create = data => Articles.create(data);
@@ -28,7 +35,8 @@ const deleteOne = id => Articles.findByIdAndRemove(id);
 // insert one product in database
 
 // --------- FUNCTIONS -----------
-router.post("/process-article", (req, res) => {
+router.post("/process-article", fileUploader.single("avatarUpload"),
+(req, res) => {
   create(req.body)
     .then(dbRes =>
       res
@@ -47,6 +55,8 @@ router.get("/articles_dashboard", (req, res) => {
     })
     .catch(dbErr => console.log(dbErr));
 });
+
+
 
 router.get("/articles_dashboard/:id", (req, res) => {
   deleteOne(req.params.id)
