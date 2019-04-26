@@ -1,6 +1,6 @@
 <h1>you're on the article form!</h1>
 
-<form action="{{action}}" method="POST">
+<form action="{{action}}" method="POST" enctype="multipart/form-data">
   <label for="title">Title</label>
   <input id="title" type="text" name="title" value="new article">
 
@@ -20,9 +20,9 @@
   <input id="tags" type="text" name="tag" value="random">
 
   {{!-- -----------🚀 FILE UPLOAD ------------- --}}
-  {{!-- <label for="article-image">upload your avatar</label>
-  <input id="article-image" type="file" name="article-image-upload"> --}}
-  {{!-- </form> --}}
+  <label for="article-image">upload your article image</label>
+  <input id="article-image" type="file" name="img-article"> 
+
 {{!-- -----------🚀 FILE UPLOAD ------------- --}}
   
 
