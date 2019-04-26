@@ -192,10 +192,9 @@ nav a:hover {
   display: inline-block;
   font-size: 20px;
   background-color: white;
-  width: 96.5%;
+  width: 100%;
   color: black;
   font-size: 1rem;
-  width: 100%;
   background-color: rgba(224, 220, 220, 0.7);
   min-height: 15%;
   padding: 2%;
@@ -317,4 +316,21 @@ input {
   max-width: 33rem;
   max-height: 22rem;
   margin-bottom: 5%;
+}
+
+.upper {
+  position: absolute;
+  z-index: 1000;
+  left: 0px;
+  top: 0px;
+  display: inline-block;
+  font-size: 20px;
+  background-color: rgba(110, 26, 26, 0.9);
+  max-width: 30%;
+  color: white;
+  font-size: 1rem;
+  width: 97%;
+  min-height: 15%;
+  padding: 2%;
+  font-size: 0.9rem;
 }
