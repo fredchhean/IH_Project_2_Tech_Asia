@@ -11,10 +11,12 @@ body {
 
 .logo {
   font-size: 2rem;
-  color: #86140d;
-  font-family: cursive;
   display: flex;
-  justify-content: center;
+  justify-content: center; }
+
+#logo {
+  color: #86140d;
+  font-family: 'Cinzel', serif;
   font-weight: bold; }
 
 nav {
@@ -250,6 +252,29 @@ input {
   width: 97%;
   min-height: 15%;
   padding: 2%;
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+  justify-content: center;
+  justify-items: center; }
+
+.rubric-title {
+  padding-left: 4rem; }
+
+footer {
+  margin-top: 5%;
+  background: #86140d;
+  width: 100%;
+  color: #F7F9F9;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+footer a {
+  text-decoration: none;
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */
