@@ -2,22 +2,26 @@
 <article class="coreText"></article>
 <header class="articleHeader">
   <h1 class="title-header">{{article.title}}</h1>
-  <h2 class="prompt">{{article.prompt}}</h2>
+  <h2 class="prompt-header">{{article.prompt}}</h2>
+
 </header>
-    <div>
-      <img src="{{article.imgarticle}}" class="img-in-article-container">
-    </div>
+  <div class="img-header">
+      <img src="{{article.imgarticle}}" class="img-in-article-onepager">
+  </div>
+
 <div>
   {{article.text}}
 
 </div>
+
+
 <footer class="articleFooter">
   <p class="author">Written by {{article.author}}</p>
   <time datetime="{{article.date}}">{{article.date}}</time>
 </footer>
 </article>
 <div class="commentMaker form_container">
-  <form action="" method="post">
+  <form action="form_btn" method="post">
     <label for="comments">Leave a comment here !</label>
     <input id="comments" type="text" name="text" value="best article ever">
     <button type="submit">ADD</button>

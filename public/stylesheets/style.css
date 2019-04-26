@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box; }
+
 body {
   margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -205,10 +208,33 @@ input {
 
 .one-pager {
   display: flex;
+  /* max-width: 80%; */
   flex-direction: column;
-  justify-content: center; }
+  margin-left: 7%;
+  margin-right: 7%;
+  background-color: white;
+  padding-right: 1%;
+  margin-top: 1.5%;
+  padding: 5%; }
 
 .title-header {
-  justify-items: center; }
+  display: flex;
+  justify-content: center; }
+
+.prompt-header {
+  display: flex;
+  margin-top: 3%; }
+
+.img-header {
+  display: flex;
+  justify-content: center; }
+
+.img-in-article-onepager {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  max-width: 33rem;
+  max-height: 22rem;
+  margin-bottom: 5%; }
 
 /*# sourceMappingURL=style.css.map */

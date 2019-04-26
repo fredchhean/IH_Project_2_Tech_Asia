@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -269,13 +273,48 @@ input {
 //   justify-items: center;
 // }
 
-// .one-article-container {
+
+// STYLE ADDED BY FRED 🔥 /////
+.one-pager {
+  display: flex;
+  /* max-width: 80%; */
+  flex-direction: column;
+  margin-left: 7%;
+  margin-right: 7%;
+  background-color: white;
+  padding-right: 1%;
+  margin-top: 1.5%;
+  padding: 5%;
+}
+
+.title-header{
+  display: flex;
+  justify-content: center;
+}
+
+.prompt-header{
+  display: flex;
+  // padding-left: 10%;
+  // margin-right:10%;
+  margin-top: 3%
+}
+
+// .img-in-article-onepager-container {
 //   display: flex;
-//   /* max-width: 80%; */
-//   margin-left: 7%;
-//   margin-right: 7%;
-//   background-color: white;
-//   padding-right: 1%;
-//   margin-top: 1.5%;
-//   align-items: center;
+//   justify-content: center;
+//   justify-items: center;
 // }
+
+.img-header{
+  display: flex;
+  justify-content: center;
+}
+
+.img-in-article-onepager{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  max-width: 33rem;
+  max-height: 22rem;
+  margin-bottom: 5%;
+}
