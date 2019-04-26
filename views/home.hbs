@@ -19,6 +19,8 @@
 <div class="ln">Last Articles</div>
 
 {{#each ArticlesList}}
+  {{#compare this.inglrcontainer "no" operator="=="}}
+
 <a href="/articlepage/{{this._id}}">
   <div class="one-article-container">
     <div>
@@ -34,6 +36,8 @@
     </div>
   </div>
 </a>
+  {{/compare}}
+
 
 
 {{/each}}
