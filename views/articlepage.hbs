@@ -21,15 +21,20 @@
 </footer>
 </article>
 <div class="commentMaker form_container">
-  <form action="form_btn" method="post">
+  <form action="" method="post">
     <label for="comments">Leave a comment here !</label>
     <input id="comments" type="text" name="text" value="best article ever">
-    <button type="submit">ADD</button>
+    <button type="submit" class="form_btn">ADD</button>
   </form>
 </div>
 <div class="commentContainer">
   {{#each article.comments}}
-  <p>{{this}}</p>
+  <div class="commentBox">
+
+  <p id="dateofcomment">{{this.posted}}</p>
+    <p id="writerofcomment">{{this.writer.pseudo}}</p>
+  <p>{{this.text}}</p>
+  </div>
   {{/each}}
 </div>
 </div>
