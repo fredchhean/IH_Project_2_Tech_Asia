@@ -4,20 +4,17 @@ body {
   justify-content: center;
   padding: 10px;
   display: block;
-  background-color:#F2F2F2;
-
+  background-color: #f2f2f2;
 }
 
-.logo{
+.logo {
   font-size: 2rem;
-  color:  #86140D;;
+  color: #86140d;
   font-family: cursive;
   display: flex;
   justify-content: center;
   font-weight: bold;
 }
-
-
 
 nav {
   height: 3rem;
@@ -30,17 +27,15 @@ nav {
   margin-bottom: 0.5rem;
   margin-left: 5%;
   margin-right: 5%;
-  color: #86140D;
+  color: #86140d;
   font-size: 15px;
-
 }
 
 a {
   text-decoration: none;
-
 }
 
-.one-article-container{
+.one-article-container {
   display: flex;
   /* max-width: 80%; */
   margin-left: 7%;
@@ -51,7 +46,7 @@ a {
   align-items: center;
 }
 
-.between-gl-art{
+.between-gl-art {
   border-top-style: dotted;
   height: 2px;
   width: 10%;
@@ -59,17 +54,16 @@ a {
   margin-top: 2rem;
 }
 
-
-.ln{
+.ln {
   font-size: 1rem;
-  color:  #111111;;
+  color: #111111;
   font-family: cursive;
   display: flex;
   justify-content: center;
   margin-bottom: 0px;
 }
 
-.img-in-article-container{
+.img-in-article-container {
   margin-right: 15px;
   margin-left: 0;
 }
@@ -79,11 +73,11 @@ a {
     max-width: 100%;
   }
   .one-article-container img:nth-child(odd) {
-      display: none;
+    display: none;
   }
 }
 
-.img-in-article-container{
+.img-in-article-container {
   max-width: 10rem;
 }
 
@@ -96,26 +90,26 @@ nav .first a:last-of-type {
 }
 
 nav a {
-  color: #86140D;
+  color: #86140d;
   font-weight: bold;
   margin-right: 8px;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 @media (max-width: 400px) {
   nav {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 }
 
-nav a:hover{
+nav a:hover {
   color: red;
 }
 
-.gallery-container{
+.gallery-container {
   display: flex;
   // justify-content: space-evenly
-  // display: block;  
+  // display: block;
   flex-wrap: nowrap;
   margin: auto;
   padding: 0;
@@ -125,7 +119,6 @@ nav a:hover{
   margin-left: 2.5%;
   margin-right: 2.5%;
   margin-top: 1rem;
-
 }
 
 .gallery-container a {
@@ -145,24 +138,22 @@ nav a:hover{
     max-width: 100%;
   }
   .gallery-container a:nth-child(odd) {
-      display: none;
+    display: none;
   }
 }
-
 
 .Style5 {
   position: absolute;
   margin: 0;
-	font-family: Gabriola, "Gentium Basic", Georgia; 
-	font-size: 36px;
+  font-family: Gabriola, "Gentium Basic", Georgia;
+  font-size: 36px;
   color: #111111;
 }
 
-
 .hr-for-nav {
   border-top-style: groove;
-  background-color:white;
-  color: #86140D;
+  background-color: white;
+  color: #86140d;
   height: 2px;
   width: 95%;
   margin-bottom: 0.5rem;
@@ -202,12 +193,9 @@ nav a:hover{
   font-size: 1rem;
 }
 
-
-
 // img:hover{
 
 // }
-
 
 // img {
 //   display: inline-block;
@@ -222,3 +210,46 @@ nav a:hover{
 //   padding: 10px 20px;
 //   border-radius: 5px;
 // }
+
+.form_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 25px;
+}
+
+form {
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  margin-top: 10%;
+  padding: 30px 2%;
+  border-radius: 15px;
+}
+
+label {
+  margin: 10px;
+  text-align: center;
+}
+
+input {
+  width: 70%;
+  height: 25px;
+
+  align-self: center;
+  border-radius: 15px /35px;
+  margin: 1em;
+  box-shadow: inset 0px 0px 4px 0.01rem grey;
+}
+
+.form_btn {
+  border-radius: 30px / 50px;
+  width: 40%;
+  align-self: center;
+  font-size: 20px;
+  background-color: lightsteelblue;
+}

@@ -1,19 +1,21 @@
-<form action="{{action}}" method="POST" enctype="multipart/form-data">
-  <label for="pseudo">Choose your pseudo</label>
-  <input id="pseudo" type="text" name="pseudo" value="foofoo">
+<div class="form_container">
+  <form action="{{action}}" method="POST" enctype="multipart/form-data">
+    <label for="pseudo">Choose your pseudo</label>
+    <input id="pseudo" type="text" name="pseudo" value="your pseudo">
 
-  <label for="password">Choose your password</label>
-  <input id="password" type="password" name="password" value="123Soleil">
+    <label for="password">Choose your password</label>
+    <input id="password" type="password" name="password" value="your password">
 
-  <label for="email">Write your email</label>
-  <input id="email" type="text" name="email" value="baz@foo.bar">
-  <button type="submit">ADD</button>
+    <label for="email">Write your email</label>
+    <input id="email" type="text" name="email" value="email@example.com">
 
 
-{{!-- -----------🚀 FILE UPLOAD ------------- --}}
-  <label for="avatar">upload your avatar</label>
-  <input id="avatar" type="file" name="avatarUpload">
-</form>
+    {{!-- -----------🚀 FILE UPLOAD ------------- --}}
+    <label for="avatar">upload your avatar</label>
+    <input id="avatar" type="file" name="avatarUpload">
+    <button type="submit" class="form_btn">ADD</button>
+  </form>
+</div>
 {{!-- -----------🚀 FILE UPLOAD ------------- --}}
 
 

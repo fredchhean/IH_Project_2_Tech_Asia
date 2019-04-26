@@ -3,14 +3,15 @@ je suis login
 yo
 {{msg}}
 
+<div class="form_container">
+  <form action="/login" method="POST">
+    <label for="email">Write your email</label>
+    <input id="email" type="text" name="email" value="test@test.fr">
 
-<form action="/login" method="POST">
-  <label for="email">Write your email</label>
-  <input id="email" type="text" name="email" value="test@test.fr">
+    <label for="password">Write your password</label>
+    <input id="password" type="password" name="password" value="test">
 
-  <label for="password">Write your password</label>
-  <input id="password" type="password" name="password" value="test">
+    <button type="submit" class="form_btn">Login</button>
 
-  <button type="submit">Login</button>
-
-</form>
+  </form>
+</div>
