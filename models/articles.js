@@ -7,13 +7,17 @@ const articlesSchema = new Schema(
     text: { type: String, required: true },
     // picture: {type: Image, default: "trouveruneimagepardéfaut"}, ☀️Voir avec Guillaume image upload
     prompt: String,
+    imgarticle: {
+      type: String, 
+      default: "https://images.pexels.com/photos/1455964/pexels-photo-1455964.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    },
+    inglrcontainer: {type: String, default:"no"},
     tag: [String],
     category: [String],
     author: {
       type: Schema.Types.ObjectId,
       ref: "profiles"
     },
-    ///COMMENT POUR TEST PUSH
 
     comments: [
       {
