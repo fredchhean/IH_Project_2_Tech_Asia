@@ -1,20 +1,14 @@
 <div class="gallery-container">
-  <a href="https://www.commentcamarche.net/forum/affich-1715263-html-bouton-lien"><img
-      src="/images/adult-businessman-ceo-618613.jpg" alt="CAPTURE" class="capture">
+  {{#each ArticlesList}}
+  {{#compare this.inglrcontainer "yes" operator="=="}}
+  <a href="/articlepage/{{this._id}}"><img
+      src="{{this.imgarticle}}" alt="CAPTURE" class="capture">
     <span class="middle">
       {{this.title}}
     </span>
   </a>
-
-  <a href="https://www.commentcamarche.net/forum/affich-1715263-html-bouton-lien"><img
-      src="/images/back-black-and-white-buildings-1435194.jpg" alt="capture" class="capture">
-    <span class="middle">
-      {{this.title}}
-    </span>
-  </a></a>
-
-  <a href="https://www.commentcamarche.net/forum/affich-1715263-html-bouton-lien"><img
-      src="/images/businessman-collaborate-collaboration-872957.jpg" alt="capture" class="capture"></a>
+  {{/compare}}
+  {{/each}}
 </div>
 
 <hr class="between-gl-art">
@@ -25,7 +19,7 @@
 <a href="/articlepage/{{this._id}}">
   <div class="one-article-container">
     <div>
-      <img src="/images/adult-businessman-ceo-618613.jpg" class="img-in-article-container">
+      <img src="{{this.imgarticle}}" class="img-in-article-container">
     </div>
     <div class="text">
       <h3>
