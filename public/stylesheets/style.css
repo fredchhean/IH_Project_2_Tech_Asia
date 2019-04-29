@@ -205,7 +205,8 @@ input {
   width: 40%;
   align-self: center;
   font-size: 20px;
-  background-color: lightsteelblue; }
+  background-color: lightsteelblue;
+  margin-top: 1rem; }
 
 .one-pager {
   display: flex;
