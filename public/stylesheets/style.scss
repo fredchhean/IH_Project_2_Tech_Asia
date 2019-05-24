@@ -278,6 +278,10 @@ input {
 //   justify-items: center;
 // }
 
+.write-article-input {
+  width: 500px;
+  height: 300px;
+}
 
 // STYLE ADDED BY FRED 🔥 /////
 .one-pager {
@@ -386,4 +390,8 @@ footer a {
 
 #writerofcomment{
   font-weight: bold;
+}
+
+.textofarticle{
+  line-height: 1.5rem;
 }

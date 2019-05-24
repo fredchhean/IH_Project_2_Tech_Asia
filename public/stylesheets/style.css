@@ -208,6 +208,10 @@ input {
   background-color: lightsteelblue;
   margin-top: 1rem; }
 
+.write-article-input {
+  width: 500px;
+  height: 300px; }
+
 .one-pager {
   display: flex;
   /* max-width: 80%; */
@@ -292,5 +296,8 @@ footer a {
 
 #writerofcomment {
   font-weight: bold; }
+
+.textofarticle {
+  line-height: 1.5rem; }
 
 /*# sourceMappingURL=style.css.map */
